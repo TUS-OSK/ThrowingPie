@@ -21,7 +21,7 @@ public class WangMaker : MonoBehaviour {
             {
                 timeleft = 0.5f;
                 tf.position = new Vector3(tf.position.x + (Random.value - 0.5f) * 2, tf.position.y, tf.position.z);
-                //Instantiate(wang, tf);
+                Instantiate(wang, tf);
             }
         }
    

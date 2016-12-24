@@ -39,7 +39,7 @@ Transform:
   m_GameObject: {fileID: 1472000712582586}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
+  m_LocalScale: {x: 0.05, y: 0.1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -63,7 +63,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &61327541168874338
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -91,7 +91,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   shotDelay: 0
-  bullet: {fileID: 0}
+  pie: {fileID: 1005185500951190, guid: fb38d6403b817d64e8996fe0991f4cf2, type: 2}
 --- !u!114 &114976116930499218
 MonoBehaviour:
   m_ObjectHideFlags: 1
