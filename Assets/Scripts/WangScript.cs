@@ -8,7 +8,7 @@ public class WangScript : MonoBehaviour {
     Transform tf;
     PieThrower pt;
     GameObject Pie;
-    float shotWaitTime = 2.0f;
+    public float shotWaitTime;
     private IEnumerator coroutine;
     public int hitPoint;
 

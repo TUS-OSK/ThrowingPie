@@ -25,6 +25,7 @@ public class PlayerScript : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D c)
     {
+		if (c.tag != "WangPie") return;
         // 弾の削除
         Destroy(c.gameObject);
 

@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Wang
+  - Pie
+  - WangPie
+  - PlayerPie
   layers:
   - Default
   - TransparentFX

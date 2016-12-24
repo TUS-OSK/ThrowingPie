@@ -18,14 +18,12 @@ public class MoveByKey : MonoBehaviour {
 		float dy = Input.GetKey(KeyCode.W) ? +1 : Input.GetKey(KeyCode.S) ? -1 : 0;
 		float normalizeScale = Mathf.Sqrt(dx*dx + dy*dy);
 		if (normalizeScale == 0) {
-			Debug.Log(Mathf.Abs(rb.velocity.x));
 			if (Mathf.Abs(rb.velocity.x)<1.0) {
 				rb.velocity = new Vector2(0,rb.velocity.y);
 			}
 			if (Mathf.Abs(rb.velocity.y)<1.0) {
 				rb.velocity = new Vector2(rb.velocity.x,0);
 			}
-			Debug.Log(rb.velocity);
 			rb.AddForce(new Vector2(-Normalize(rb.velocity.x)*speed,-Normalize(rb.velocity.y)*speed));
 			return;
 		}
