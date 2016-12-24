@@ -15,7 +15,7 @@ public class PlayerScript : MonoBehaviour {
 	void Update () {
 		if (Input.GetKey(KeyCode.M))
 		{
-			pt.Shot(this.GetComponent<Transform>(), new Vector2(0,1));
+			pt.Shot(this.GetComponent<Transform>(), new Vector2(0,10));
 		}
 	}
 }
