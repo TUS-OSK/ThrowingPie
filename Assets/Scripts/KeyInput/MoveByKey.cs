@@ -6,7 +6,7 @@ public class MoveByKey : MonoBehaviour {
 
 	// Use this for initialization
 	Rigidbody2D rb;
-	float speed = 30f;
+	float speed = 10f;
 
 	void Start () {
 		this.rb = this.GetComponent<Rigidbody2D>();
@@ -24,11 +24,12 @@ public class MoveByKey : MonoBehaviour {
 			if (Mathf.Abs(rb.velocity.y)<1.0) {
 				rb.velocity = new Vector2(rb.velocity.x,0);
 			}
-			rb.AddForce(new Vector2(-Normalize(rb.velocity.x)*speed,-Normalize(rb.velocity.y)*speed));
+			rb.AddForce(new Vector2(-Normalize(rb.velocity.x)*speed*3,-Normalize(rb.velocity.y)*speed*3));
 			return;
 		}
+		rb.velocity = rb.velocity.magnitude < speed ? rb.velocity : rb.velocity * speed / rb.velocity.magnitude;
 		float speedScale = speed/normalizeScale;
-		rb.AddForce(new Vector2(dx*speedScale, dy*speedScale));
+		rb.AddForce(new Vector2(dx*speedScale*3, dy*speedScale*3));
 	}
 
 	private float Normalize(float f) {
