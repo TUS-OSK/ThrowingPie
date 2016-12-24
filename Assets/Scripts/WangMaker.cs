@@ -17,11 +17,12 @@ public class WangMaker : MonoBehaviour {
     void Update()
     {
         timeleft -= Time.deltaTime;
-        if (timeleft <= 0.0)
-        {
-            timeleft = 0.5f;
-            //tf.position = new Vector3(tf.position.x + Random.value - 0.5f, tf.position.y, tf.position.z);
-            Instantiate(wang, tf);
+            if (timeleft <= 0.0)
+            {
+                timeleft = 0.5f;
+                tf.position = new Vector3(tf.position.x + (Random.value - 0.5f) * 2, tf.position.y, tf.position.z);
+                //Instantiate(wang, tf);
+            }
         }
-    }
+   
 }

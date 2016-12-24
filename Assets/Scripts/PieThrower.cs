@@ -12,12 +12,12 @@ public class PieThrower : MonoBehaviour
     public float shotDelay;
 
     // 弾のPrefab
-    public GameObject bullet;
+    public GameObject pie;
 
     // 弾の作成
     public void Shot(Transform origin)
     {
-        Instantiate(bullet, origin.position, origin.rotation);
+        Instantiate(pie, origin.position, origin.rotation);
     }
 
     // 機体の移動
