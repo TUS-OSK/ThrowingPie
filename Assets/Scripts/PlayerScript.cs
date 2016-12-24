@@ -6,6 +6,7 @@ public class PlayerScript : MonoBehaviour {
 
 	// Use this for initialization
 	PieThrower pt;
+    public int hitPoint=10;
 
 	void Start () {
 		this.pt = this.GetComponent<PieThrower>();
@@ -21,4 +22,17 @@ public class PlayerScript : MonoBehaviour {
 			}
 		}
 	}
+
+    void OnTriggerEnter2D(Collider2D c)
+    {
+        // 弾の削除
+        Destroy(c.gameObject);
+
+        hitPoint--;
+        if (hitPoint<=0)
+        {
+            // プレイヤーを削除
+            Destroy(this.gameObject);
+        }
+    }
 }

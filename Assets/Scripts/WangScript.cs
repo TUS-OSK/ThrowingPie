@@ -10,6 +10,8 @@ public class WangScript : MonoBehaviour {
     GameObject Pie;
     float shotWaitTime = 2.0f;
     private IEnumerator coroutine;
+    public int hitPoint;
+
     // Use this for initialization
     void Start()
     {
@@ -30,7 +32,7 @@ public class WangScript : MonoBehaviour {
         while (true)
         {
             // 弾をプレイヤーと同じ位置/角度で作成
-            pt.Shot(tf,new Vector2(0,-1));
+            pt.Shot(tf,new Vector2(0,-10));
             // waittime待つ
             yield return new WaitForSeconds(waittime);
         }
@@ -44,5 +46,14 @@ public class WangScript : MonoBehaviour {
     private void OnDestroy()
     {
         Debug.Log("kill");
+    }
+
+    void OnTriggerEnter2D(Collider2D c)
+    {
+        // 弾の削除
+        Destroy(c.gameObject);
+
+        // プレイヤーを削除
+        Destroy(this.gameObject);
     }
 }
