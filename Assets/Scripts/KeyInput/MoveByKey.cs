@@ -5,11 +5,11 @@ using UnityEngine;
 public class MoveByKey : MonoBehaviour {
 
 	// Use this for initialization
-	Transform transform;
-	float speed = 0.3f;
+	Rigidbody2D rb;
+	float speed = 30f;
 
 	void Start () {
-		this.transform = this.GetComponent<Transform>();
+		this.rb = this.GetComponent<Rigidbody2D>();
 	}
 	
 	// Update is called once per frame
@@ -17,11 +17,23 @@ public class MoveByKey : MonoBehaviour {
 		float dx = Input.GetKey(KeyCode.D) ? +1 : Input.GetKey(KeyCode.A) ? -1 : 0;
 		float dy = Input.GetKey(KeyCode.W) ? +1 : Input.GetKey(KeyCode.S) ? -1 : 0;
 		float normalizeScale = Mathf.Sqrt(dx*dx + dy*dy);
+		if (normalizeScale == 0) {
+			Debug.Log(Mathf.Abs(rb.velocity.x));
+			if (Mathf.Abs(rb.velocity.x)<1.0e-5f) {
+				rb.velocity = new Vector2(0,rb.velocity.y);
+			}
+			if (Mathf.Abs(rb.velocity.y)<1.0e-5f) {
+				rb.velocity = new Vector2(rb.velocity.x,0);
+			}
+			rb.AddForce(new Vector2(-Normalize(rb.velocity.x)*speed,-Normalize(rb.velocity.y)*speed));
+			return;
+		}
 		float speedScale = speed/normalizeScale;
-		transform.position = new Vector3(
-			transform.position.x + dx*speedScale,
-			transform.position.y + dy*speedScale,
-			0
-		);
+		rb.AddForce(new Vector2(dx*speedScale, dy*speedScale));
+	}
+
+	private float Normalize(float f) {
+		if (f == 0) return 0;
+		return f / Mathf.Abs(f);
 	}
 }
