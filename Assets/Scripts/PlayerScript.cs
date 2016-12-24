@@ -6,9 +6,10 @@ public class PlayerScript : MonoBehaviour {
 
 	// Use this for initialization
 	PieThrower pt;
-    public int hitPoint=10;
+    public int hitPoint;
+    public GameObject lifegauge;
 
-	void Start () {
+    void Start () {
 		this.pt = this.GetComponent<PieThrower>();
 	}
 	
@@ -27,8 +28,10 @@ public class PlayerScript : MonoBehaviour {
     {
         // 弾の削除
         Destroy(c.gameObject);
+        lifegauge = GameObject.Find("LifeGauge"+hitPoint);
+        Destroy(lifegauge);
+         hitPoint--;
 
-        hitPoint--;
         if (hitPoint<=0)
         {
             // プレイヤーを削除
