@@ -26,16 +26,21 @@ public class PlayerScript : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D c)
     {
-        // 弾の削除
-        Destroy(c.gameObject);
-        lifegauge = GameObject.Find("LifeGauge"+hitPoint);
-        Destroy(lifegauge);
-         hitPoint--;
-
-        if (hitPoint<=0)
+        if (c.tag != "Player")
         {
-            // プレイヤーを削除
-            Destroy(this.gameObject);
+            // 弾の削除
+            Destroy(c.gameObject);
+            lifegauge = GameObject.Find("LifeGauge" + hitPoint);
+            Destroy(lifegauge);
+            hitPoint--;
+
+
+            if (hitPoint <= 0)
+            {
+                // プレイヤーを削除
+                Destroy(this.gameObject);
+            }
+
         }
     }
 }
