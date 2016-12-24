@@ -50,10 +50,14 @@ public class WangScript : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D c)
     {
+        if (c.tag != "PlayerPie") return;
+        hitPoint--;
         // 弾の削除
         Destroy(c.gameObject);
-
-        // プレイヤーを削除
-        Destroy(this.gameObject);
+        if (hitPoint <= 0)
+        {
+            // プレイヤーを削除
+            Destroy(this.gameObject);
+        }
     }
 }
