@@ -14,10 +14,18 @@ public class PieThrower : MonoBehaviour
     // 弾のPrefab
     public GameObject pie;
 
+    // 弾を撃つ方向
+    public Vector2 direction;
+
     // 弾の作成
-    public void Shot(Transform origin)
+    public void Shot(Transform origin,Vector2 shotDirection)
     {
-        Instantiate(pie, origin.position, origin.rotation);
+        //Instantiate(pie, origin);
+        GameObject Ps = Instantiate(pie, origin.position, origin.rotation) as GameObject;
+        // Shotスクリプトオブジェクトを取得
+        PieScript ps = Ps.GetComponent<PieScript>();
+        // 移動速度を設定
+        ps.OnCreate(direction, speed);
     }
 
     // 機体の移動

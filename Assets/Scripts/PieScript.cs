@@ -4,22 +4,27 @@ using UnityEngine;
 
 public class PieScript : MonoBehaviour {
 
-    public int speed = 10;
+    public float speed = 10;
     private IEnumerator coroutine;
     // Use this for initialization
     void Start () {
-		GetComponent<Rigidbody2D>().velocity = transform.up.normalized * speed;
-	}
+        coroutine = AutoDestroy();
+        StartCoroutine(coroutine);
+    }
 	
 	// Update is called once per frame
 	void Update () {
-        coroutine = AutoDestroy();
-        StartCoroutine(coroutine);
+        
     }
 
     IEnumerator AutoDestroy()
     {
         yield return new WaitForSeconds(5f);
         Destroy(this.gameObject);
+    }
+
+    public void OnCreate(Vector2 direction, float speed) {
+        this.GetComponent<Rigidbody2D>().velocity = direction;
+        this.speed = speed;
     }
 }

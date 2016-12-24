@@ -35,7 +35,7 @@ public class MoveByKey : MonoBehaviour {
 
         if (Input.GetKey(KeyCode.M))
         {
-            pt.Shot(this.GetComponent<Transform>());
+            pt.Shot(this.GetComponent<Transform>(),new Vector2(0,1));
         }
 
     }
