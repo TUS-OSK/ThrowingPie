@@ -11,6 +11,7 @@ public class test : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        Transform tf = this.GetComponent<Transform>();
+        tf.position = new Vector3(tf.position.x + 1, tf.position.y, tf.position.z);
 	}
 }
