@@ -7,11 +7,9 @@ public class MoveByKey : MonoBehaviour {
 	// Use this for initialization
 	Rigidbody2D rb;
 	float speed = 30f;
-    PieThrower pt;
 
 	void Start () {
 		this.rb = this.GetComponent<Rigidbody2D>();
-        this.pt = this.GetComponent<PieThrower>();
 	}
 	
 	// Update is called once per frame
@@ -21,24 +19,19 @@ public class MoveByKey : MonoBehaviour {
 		float normalizeScale = Mathf.Sqrt(dx*dx + dy*dy);
 		if (normalizeScale == 0) {
 			Debug.Log(Mathf.Abs(rb.velocity.x));
-			if (Mathf.Abs(rb.velocity.x)<1.0e-5f) {
+			if (Mathf.Abs(rb.velocity.x)<1.0) {
 				rb.velocity = new Vector2(0,rb.velocity.y);
 			}
-			if (Mathf.Abs(rb.velocity.y)<1.0e-5f) {
+			if (Mathf.Abs(rb.velocity.y)<1.0) {
 				rb.velocity = new Vector2(rb.velocity.x,0);
 			}
+			Debug.Log(rb.velocity);
 			rb.AddForce(new Vector2(-Normalize(rb.velocity.x)*speed,-Normalize(rb.velocity.y)*speed));
 			return;
 		}
 		float speedScale = speed/normalizeScale;
 		rb.AddForce(new Vector2(dx*speedScale, dy*speedScale));
-
-        if (Input.GetKey(KeyCode.M))
-        {
-            pt.Shot(this.GetComponent<Transform>());
-        }
-
-    }
+	}
 
 	private float Normalize(float f) {
 		if (f == 0) return 0;
