@@ -12,7 +12,7 @@ public class WangScript : MonoBehaviour {
     public float shotWaitTime;
     private IEnumerator coroutine;
     public int hitPoint;
-    private int count;
+    private int count=101;
     float speed = 10f;
 
     // Use this for initialization
@@ -30,8 +30,8 @@ public class WangScript : MonoBehaviour {
     void Update () {
         if (count > 100)
         {
-            float dx = Input.GetKey(KeyCode.D) ? +1 : Input.GetKey(KeyCode.A) ? -1 : 0;
-            float dy = Input.GetKey(KeyCode.W) ? +1 : Input.GetKey(KeyCode.S) ? -1 : 0;
+            float dx = Random.value<0.5 ? +1 : -1;
+            float dy = Random.value < 0.5 ? +1 : -1;
             float normalizeScale = Mathf.Sqrt(dx * dx + dy * dy);
             if (normalizeScale == 0)
             {
@@ -49,7 +49,9 @@ public class WangScript : MonoBehaviour {
             rb.velocity = rb.velocity.magnitude < speed ? rb.velocity : rb.velocity * speed / rb.velocity.magnitude;
             float speedScale = speed / normalizeScale;
             rb.AddForce(new Vector2(dx * speedScale * 3, dy * speedScale * 3));
+            count = 0;
         }
+        count++;
     }
 
     private float Normalize(float f)
