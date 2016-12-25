@@ -25,16 +25,21 @@ public class WangMaker : MonoBehaviour {
         int count = 0;
         while (true)
         {
-            if (count < 20)
+            if (count < 10)
             {
                 Instantiate(wang, new Vector3(Random.Range(-12.0f, 12.0f), 6,0), Quaternion.identity);
                 // waittime待つ
                 yield return new WaitForSeconds(waitTime);
             }
+            else if (count < 20)
+            {
+                Instantiate(wang, new Vector3(Random.Range(-12.0f, 12.0f), 6, 0), Quaternion.identity);
+                // waittime待つ
+                yield return new WaitForSeconds(waitTime/2);
+            }
             else
             {
-                tf.position = new Vector3(tf.position.x, 5,0);
-                Instantiate(bossWang, tf);
+                Instantiate(bossWang, new Vector3(0, 6, 0), Quaternion.identity);
                 yield return new WaitForSeconds(10000000);
             }
             count++;

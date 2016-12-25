@@ -7,16 +7,20 @@ public class WangScript : MonoBehaviour {
 
     Transform tf;
     PieThrower pt;
+    Rigidbody2D rb;
     GameObject Pie;
     public float shotWaitTime;
     private IEnumerator coroutine;
     public int hitPoint;
+    private int count=101;
+    float speed = 10f;
 
     // Use this for initialization
     void Start()
     {
         tf = this.GetComponent<Transform>();
         pt = this.GetComponent<PieThrower>();
+        this.rb = this.GetComponent<Rigidbody2D>();
 
         coroutine = ThrowPie(shotWaitTime);
         StartCoroutine(coroutine);
@@ -24,7 +28,36 @@ public class WangScript : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        
+        if (count > 100)
+        {
+            float dx = Random.value<0.5 ? +1 : -1;
+            float dy = Random.value < 0.5 ? +1 : -1;
+            float normalizeScale = Mathf.Sqrt(dx * dx + dy * dy);
+            if (normalizeScale == 0)
+            {
+                if (Mathf.Abs(rb.velocity.x) < 1.0)
+                {
+                    rb.velocity = new Vector2(0, rb.velocity.y);
+                }
+                if (Mathf.Abs(rb.velocity.y) < 1.0)
+                {
+                    rb.velocity = new Vector2(rb.velocity.x, 0);
+                }
+                rb.AddForce(new Vector2(-Normalize(rb.velocity.x) * speed * 3, -Normalize(rb.velocity.y) * speed * 3));
+                return;
+            }
+            rb.velocity = rb.velocity.magnitude < speed ? rb.velocity : rb.velocity * speed / rb.velocity.magnitude;
+            float speedScale = speed / normalizeScale;
+            rb.AddForce(new Vector2(dx * speedScale * 3, dy * speedScale * 3));
+            count = 0;
+        }
+        count++;
+    }
+
+    private float Normalize(float f)
+    {
+        if (f == 0) return 0;
+        return f / Mathf.Abs(f);
     }
 
     IEnumerator ThrowPie(float waittime) {
