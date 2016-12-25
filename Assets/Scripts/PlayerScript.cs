@@ -7,6 +7,11 @@ public class PlayerScript : MonoBehaviour {
 	// Use this for initialization
 	PieThrower pt;
     public int hitPoint=10;
+<<<<<<< HEAD
+=======
+	public int shootFrame = 4;
+    private IEnumerator coroutine;
+>>>>>>> 4ad70baf114d4d6949ed157c64158039c1dd0061
 
     void Start () {
 		this.pt = this.GetComponent<PieThrower>();
@@ -16,9 +21,9 @@ public class PlayerScript : MonoBehaviour {
 	void Update () {
 		if (Input.GetKey(KeyCode.M))
 		{
-			if (Time.frameCount % 10 == 0)
+			if (Time.frameCount % shootFrame == 0)
 			{
-		  		pt.Shot(this.GetComponent<Transform>(), new Vector2(0,1));	
+		  		pt.Shot(this.GetComponent<Transform>());	
 			}
 		}
 	}
