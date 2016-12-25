@@ -1151,7 +1151,11 @@ MonoBehaviour:
   speed: 0
   shotDelay: 0
   pie: {fileID: 1005185500951190, guid: aa2cd465b14e24f4caa2b4f4bf7dc353, type: 2}
-  direction: {x: 0, y: 0}
+  directions:
+  - {x: 0, y: 1}
+  - {x: 0.2, y: 1}
+  - {x: 0, y: 1}
+  - {x: -0.2, y: 1}
 --- !u!114 &1923089079
 MonoBehaviour:
   m_ObjectHideFlags: 0
