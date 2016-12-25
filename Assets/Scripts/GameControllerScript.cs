@@ -18,4 +18,19 @@ public class GameControllerScript : MonoBehaviour {
     public void toMain() {
         SceneManager.LoadScene("Main");
     }
+
+    public void toStart()
+    {
+        SceneManager.LoadScene("Start");
+    }
+
+    public void toGameClear()
+    {
+        SceneManager.LoadScene("GameClear");
+    }
+
+    public void toGameover()
+    {
+        SceneManager.LoadScene("Gameover");
+    }
 }
