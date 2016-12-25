@@ -434,7 +434,7 @@ GameObject:
   - component: {fileID: 391199976}
   - component: {fileID: 391199975}
   m_Layer: 5
-  m_Name: Life4
+  m_Name: Life3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -632,7 +632,7 @@ GameObject:
   - component: {fileID: 647120316}
   - component: {fileID: 647120315}
   m_Layer: 5
-  m_Name: Life2
+  m_Name: Life5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1143,7 +1143,7 @@ GameObject:
   - component: {fileID: 1537572307}
   - component: {fileID: 1537572306}
   m_Layer: 5
-  m_Name: Life5
+  m_Name: Life2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1279,7 +1279,7 @@ GameObject:
   - component: {fileID: 1704421711}
   - component: {fileID: 1704421710}
   m_Layer: 5
-  m_Name: Life3
+  m_Name: Life4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1483,7 +1483,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 838f4e7d72c8e4897b06e915c1b67cb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitPoint: 10
+  hitPoint: 5
   shootFrame: 4
 --- !u!114 &1923089080
 MonoBehaviour:
