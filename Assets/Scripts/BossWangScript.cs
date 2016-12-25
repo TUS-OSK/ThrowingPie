@@ -23,12 +23,6 @@ public class BossWangScript : MonoBehaviour
         StartCoroutine(coroutine);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        pt.Move(transform.up * -1);
-
-    }
 
     IEnumerator ThrowPie(float waittime)
     {

@@ -27,9 +27,4 @@ public class PieThrower : MonoBehaviour
         ps.OnCreate(directions);
     }
 
-    // 機体の移動
-    public void Move(Vector2 direction)
-    {
-        GetComponent<Rigidbody2D>().velocity = direction * speed;
-    }
 }

@@ -24,8 +24,7 @@ public class WangScript : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        pt.Move(transform.up * -1);
-
+        
     }
 
     IEnumerator ThrowPie(float waittime) {
