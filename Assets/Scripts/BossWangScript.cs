@@ -35,7 +35,7 @@ public class BossWangScript : MonoBehaviour
         while (true)
         {
             // 弾をプレイヤーと同じ位置/角度で作成
-            pt.Shot(tf, new Vector2(0, -1));
+            pt.Shot(tf);
             // waittime待つ
             yield return new WaitForSeconds(waittime);
         }
