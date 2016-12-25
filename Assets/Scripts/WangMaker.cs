@@ -27,8 +27,9 @@ public class WangMaker : MonoBehaviour {
         {
             if (count < 10)
             {
-                tf.position = new Vector3(tf.position.x + (Random.value - 0.5f) * 10, tf.position.y, tf.position.z);
-                Instantiate(wang, tf);
+                //tf.position = new Vector3(tf.position.x + (Random.value - 0.5f) * 10, tf.position.y, tf.position.z);
+                //Instantiate(wang, tf);
+                    Instantiate(wang, new Vector3(-16 + count * 3.0f, 7, 0), Quaternion.identity);
                 // waittime待つ
                 yield return new WaitForSeconds(waitTime);
             }

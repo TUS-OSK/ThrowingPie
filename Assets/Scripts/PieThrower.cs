@@ -24,7 +24,7 @@ public class PieThrower : MonoBehaviour
         GameObject Ps = Instantiate(pie, origin.position, origin.rotation) as GameObject;
         // Shotスクリプトオブジェクトを取得
         PieScript ps = Ps.GetComponent<PieScript>();
-        ps.OnCreate(shotDirection, speed);
+        ps.OnCreate(shotDirection);
     }
 
     // 機体の移動

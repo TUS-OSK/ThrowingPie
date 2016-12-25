@@ -23,8 +23,8 @@ public class PieScript : MonoBehaviour {
         Destroy(this.gameObject);
     }
 
-    public void OnCreate(Vector2 direction, float speed) {
-        this.GetComponent<Rigidbody2D>().velocity = direction;
-        this.speed = speed;
+    public void OnCreate(Vector2 direction) {
+        this.GetComponent<Rigidbody2D>().velocity = speed * direction;
+        
     }
 }
