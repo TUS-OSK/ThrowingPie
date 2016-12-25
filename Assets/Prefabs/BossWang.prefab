@@ -20,10 +20,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4386321961960040}
   - component: {fileID: 212979533390549950}
-  - component: {fileID: 114552032866421882}
   - component: {fileID: 61162977664263834}
   - component: {fileID: 114997384964475922}
   - component: {fileID: 50835274294188592}
+  - component: {fileID: 114639348311850066}
   m_Layer: 0
   m_Name: BossWang
   m_TagString: Wang
@@ -78,7 +78,7 @@ BoxCollider2D:
   m_Offset: {x: -13.668413, y: 0}
   serializedVersion: 2
   m_Size: {x: 11.063917, y: 21.600004}
---- !u!114 &114552032866421882
+--- !u!114 &114639348311850066
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -86,10 +86,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1725187624956014}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52f0e111dc6676c49a539982e6ac8251, type: 3}
+  m_Script: {fileID: 11500000, guid: 8acfcf4598d325548a52f5baf3d65b73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shotWaitTime: 0.5
+  shotWaitTime: 1
   hitPoint: 40
 --- !u!114 &114997384964475922
 MonoBehaviour:

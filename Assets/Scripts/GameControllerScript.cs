@@ -5,8 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class GameControllerScript : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+
+
+    private IEnumerator coroutine;
+
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -26,11 +30,19 @@ public class GameControllerScript : MonoBehaviour {
 
     public void toGameClear()
     {
-        SceneManager.LoadScene("GameClear");
+        coroutine = WaitAndGo(3f, "GameClear");
+        StartCoroutine(coroutine);
     }
 
     public void toGameover()
     {
-        SceneManager.LoadScene("Gameover");
+        coroutine = WaitAndGo(3f,"Gameover");
+        StartCoroutine(coroutine);
+    }
+
+    IEnumerator WaitAndGo(float waitTime,string sceneName)
+    {
+        yield return new WaitForSeconds(waitTime);
+        SceneManager.LoadScene(sceneName);
     }
 }

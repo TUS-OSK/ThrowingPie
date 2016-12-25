@@ -60,15 +60,8 @@ public class BossWangScript : MonoBehaviour
         if (hitPoint <= 0)
         {
             // プレイヤーを削除
-            Destroy(this.gameObject);
-            coroutine = GoGameClear();
+            GameObject.Find("GameController").GetComponent<GameControllerScript>().toGameClear();
             StartCoroutine(coroutine);
         }
-    }
-
-    IEnumerator GoGameClear()
-    {
-        yield return new WaitForSeconds(5f);
-        GameObject.Find("GameController").GetComponent<GameControllerScript>().toGameClear();
     }
 }

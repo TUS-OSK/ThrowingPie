@@ -7,7 +7,6 @@ public class PlayerScript : MonoBehaviour {
 	// Use this for initialization
 	PieThrower pt;
     public int hitPoint=10;
-    private IEnumerator coroutine;
 
     void Start () {
 		this.pt = this.GetComponent<PieThrower>();
@@ -34,14 +33,8 @@ public class PlayerScript : MonoBehaviour {
         if (hitPoint<=0)
         {
             // プレイヤーを削除
-            coroutine = GoGameover();
-            StartCoroutine(coroutine);
+            GameObject.Find("GameController").GetComponent<GameControllerScript>().toGameover();
             Destroy(this.gameObject);
         }
-    }
-    IEnumerator GoGameover()
-    {
-        yield return new WaitForSeconds(5f);
-        GameObject.Find("GameController").GetComponent<GameControllerScript>().toGameover();
     }
 }
