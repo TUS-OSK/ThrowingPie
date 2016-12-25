@@ -6,7 +6,7 @@ public class PlayerScript : MonoBehaviour {
 
 	// Use this for initialization
 	PieThrower pt;
-    public int hitPoint=10;
+    public int hitPoint;
 	public int shootFrame = 4;
     private IEnumerator coroutine;
     private Transform tf;
@@ -49,6 +49,7 @@ public class PlayerScript : MonoBehaviour {
 		if (c.tag != "WangPie") return;
         // 弾の削除
         Destroy(c.gameObject);
+        Destroy(GameObject.Find("Life" + hitPoint));
 
         hitPoint--;
         if (hitPoint<=0)
