@@ -5,6 +5,7 @@ using UnityEngine;
 public class WangMaker : MonoBehaviour {
 
     public GameObject wang;
+    public GameObject bossWang;
     Transform tf;
     public float waitTime=1.0f;
     private IEnumerator coroutine;
@@ -18,17 +19,27 @@ public class WangMaker : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update()
-    {
-    }
+    void Update() { }
 
     IEnumerator Make() {
+        int count = 0;
         while (true)
         {
-            tf.position = new Vector3(tf.position.x + (Random.value - 0.5f) * 2, tf.position.y, tf.position.z);
-            Instantiate(wang, tf);
-            // waittime待つ
-            yield return new WaitForSeconds(waitTime);
+            if (count < 10)
+            {
+                //tf.position = new Vector3(tf.position.x + (Random.value - 0.5f) * 10, tf.position.y, tf.position.z);
+                //Instantiate(wang, tf);
+                    Instantiate(wang, new Vector3(-16 + count * 3.0f, 7, 0), Quaternion.identity);
+                // waittime待つ
+                yield return new WaitForSeconds(waitTime);
+            }
+            else
+            {
+                tf.position = new Vector3(tf.position.x + (Random.value - 0.5f) * 2, tf.position.y, tf.position.z);
+                Instantiate(bossWang, tf);
+                yield return new WaitForSeconds(10000000);
+            }
+            count++;
         }
     }
    

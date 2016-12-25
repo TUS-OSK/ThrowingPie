@@ -24,8 +24,8 @@ GameObject:
   - component: {fileID: 58055796935958290}
   - component: {fileID: 114467771094774304}
   m_Layer: 0
-  m_Name: Pie
-  m_TagString: Untagged
+  m_Name: WangPie
+  m_TagString: WangPie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -88,7 +88,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e9135d769c899749abc564b0c463e47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 20
 --- !u!212 &212883957248949570
 SpriteRenderer:
   m_ObjectHideFlags: 1
