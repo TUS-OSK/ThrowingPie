@@ -106,9 +106,9 @@ MonoBehaviour:
   shotDelay: 0
   pie: {fileID: 1005185500951190, guid: 7bd161619e41a40eeb23d885de6329b8, type: 2}
   directions:
-  - {x: 0, y: -1}
-  - {x: 0.3, y: -1}
-  - {x: -0.3, y: -1}
+  - {x: 0, y: -0.5}
+  - {x: 0.15, y: -0.5}
+  - {x: -0.15, y: -0.5}
 --- !u!212 &212979533390549950
 SpriteRenderer:
   m_ObjectHideFlags: 1
