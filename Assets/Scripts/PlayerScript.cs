@@ -9,10 +9,13 @@ public class PlayerScript : MonoBehaviour {
     public int hitPoint=10;
 	public int shootFrame = 4;
     private IEnumerator coroutine;
+    private Transform tf;
 
     void Start () {
 		this.pt = this.GetComponent<PieThrower>();
-	}
+        this.tf = this.GetComponent<Transform>();
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -23,7 +26,23 @@ public class PlayerScript : MonoBehaviour {
 		  		pt.Shot(this.GetComponent<Transform>());	
 			}
 		}
-	}
+
+        if (tf.position.x<-10) {
+            tf.position = new Vector3(-10,tf.position.y,tf.position.z);
+        }
+        if (tf.position.x > 10)
+        {
+            tf.position = new Vector3(10, tf.position.y, tf.position.z);
+        }
+        if (tf.position.y > 3)
+        {
+            tf.position = new Vector3(tf.position.x, 3, tf.position.z);
+        }
+        if (tf.position.y < -6)
+        {
+            tf.position = new Vector3(tf.position.x, -6, tf.position.z);
+        }
+    }
 
     void OnTriggerEnter2D(Collider2D c)
     {
